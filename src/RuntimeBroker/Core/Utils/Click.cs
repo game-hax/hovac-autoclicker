@@ -31,14 +31,14 @@ namespace autoclicker.Core.Utils
                 Wait();
         }
 
-        public static void _Click(bool bounce = false)
+        public static void _Click()
         {
             if (clicker.settings.lmbEnabled)
-                Left(bounce);
+                Left();
             if (clicker.settings.rmbEnabled)
-                Right(bounce);
+                Right();
             if (clicker.settings.mmbEnabled)
-                Middle(bounce);
+                Middle();
         }
 
         #region Utilities
@@ -48,7 +48,7 @@ namespace autoclicker.Core.Utils
         [DllImport("user32.dll", SetLastError = true)]
         public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
-        public static void Left(bool bounce = false)
+        public static void Left()
         {
             if ((clicker.settings.whitelistedSlotsEnabled && clicker.settings.whitelistedSlots[clicker.settings.currentSlot]) || (clicker.settings.dimEnabled && Cursor.IsCursorVisible()))
             {
@@ -63,8 +63,6 @@ namespace autoclicker.Core.Utils
                 if (clicker.settings.randomizerEnabled)
                     Wait();
                 mouse_event(4, 0, 0, 0, 0);
-                if (bounce)
-                    mouse_event(2, 0, 0, 0, 0);
             }
             else
             {
@@ -74,8 +72,6 @@ namespace autoclicker.Core.Utils
                     if (clicker.settings.randomizerEnabled)
                         Wait();
                     SendMessage(FindWindow("LWJGL", null), 0x202, 0, 0);
-                    if (bounce)
-                        SendMessage(FindWindow("LWJGL", null), 0x201, 0, 0);
                 }
                 else
                 {
@@ -86,7 +82,7 @@ namespace autoclicker.Core.Utils
             clicker.multiclicking = false;
         }
 
-        public static void Right(bool bounce = false)
+        public static void Right()
         {
             if ((clicker.settings.whitelistedSlotsEnabled && clicker.settings.whitelistedSlots[clicker.settings.currentSlot]) || (clicker.settings.dimEnabled && Cursor.IsCursorVisible()))
             {
@@ -101,8 +97,6 @@ namespace autoclicker.Core.Utils
                 if (clicker.settings.randomizerEnabled)
                     Wait();
                 mouse_event(16, 0, 0, 0, 0);
-                if (bounce)
-                    mouse_event(8, 0, 0, 0, 0);
             }
             else
             {
@@ -110,14 +104,12 @@ namespace autoclicker.Core.Utils
                 if (clicker.settings.randomizerEnabled)
                     Wait();
                 SendMessage(FindWindow("LWJGL", null), 0x0205, 0, 0);
-                if (bounce)
-                    SendMessage(FindWindow("LWJGL", null), 0x0204, 0, 0);
             }
             clicker.multiclicking = false;
             clicker.blockhitting = false;
         }
 
-        public static void Middle(bool bounce = false)
+        public static void Middle()
         {
             if ((clicker.settings.whitelistedSlotsEnabled && clicker.settings.whitelistedSlots[clicker.settings.currentSlot]) || (clicker.settings.dimEnabled && Cursor.IsCursorVisible()))
             {
@@ -132,8 +124,6 @@ namespace autoclicker.Core.Utils
                 if (clicker.settings.randomizerEnabled)
                     Wait();
                 mouse_event(64, 0, 0, 0, 0);
-                if (bounce)
-                    mouse_event(32, 0, 0, 0, 0);
             }
             else
             {
@@ -141,8 +131,6 @@ namespace autoclicker.Core.Utils
                 if (clicker.settings.randomizerEnabled)
                     Wait();
                 SendMessage(FindWindow("LWJGL", null), 0x0208, 0, 0);
-                if (bounce)
-                    SendMessage(FindWindow("LWJGL", null), 0x0207, 0, 0);
             }
             clicker.multiclicking = false;
         }

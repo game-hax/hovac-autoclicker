@@ -35,6 +35,8 @@
             this.Credit = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.ColourSelector = new System.Windows.Forms.ColorDialog();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TopMostModifier = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -42,12 +44,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panel1.Controls.Add(this.TopMostModifier);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.SelectColour);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 46);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(4);
-            this.panel1.Size = new System.Drawing.Size(399, 76);
+            this.panel1.Size = new System.Drawing.Size(399, 266);
             this.panel1.TabIndex = 5;
             // 
             // SelectColour
@@ -100,11 +104,11 @@
             // 
             this.Credit.ActiveLinkColor = System.Drawing.Color.Plum;
             this.Credit.AutoSize = true;
-            this.Credit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Credit.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Credit.LinkColor = System.Drawing.Color.Plum;
-            this.Credit.Location = new System.Drawing.Point(49, 19);
+            this.Credit.Location = new System.Drawing.Point(47, 18);
             this.Credit.Name = "Credit";
-            this.Credit.Size = new System.Drawing.Size(301, 17);
+            this.Credit.Size = new System.Drawing.Size(301, 19);
             this.Credit.TabIndex = 0;
             this.Credit.TabStop = true;
             this.Credit.Text = "https://github.com/game-hax/hovac-autoclicker";
@@ -120,6 +124,31 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "hovac clicker, v4";
             this.label2.UseCompatibleTextRendering = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.label3.Location = new System.Drawing.Point(4, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(105, 25);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Miscellaneous:";
+            this.label3.UseCompatibleTextRendering = true;
+            // 
+            // TopMostModifier
+            // 
+            this.TopMostModifier.AutoSize = true;
+            this.TopMostModifier.Checked = true;
+            this.TopMostModifier.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TopMostModifier.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TopMostModifier.Location = new System.Drawing.Point(4, 90);
+            this.TopMostModifier.Name = "TopMostModifier";
+            this.TopMostModifier.Size = new System.Drawing.Size(85, 23);
+            this.TopMostModifier.TabIndex = 15;
+            this.TopMostModifier.Text = "Top most";
+            this.TopMostModifier.UseVisualStyleBackColor = true;
+            this.TopMostModifier.CheckedChanged += new System.EventHandler(this.TopMostModifier_CheckedChanged);
             // 
             // Settings
             // 
@@ -149,5 +178,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button SelectColour;
         private System.Windows.Forms.ColorDialog ColourSelector;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox TopMostModifier;
     }
 }

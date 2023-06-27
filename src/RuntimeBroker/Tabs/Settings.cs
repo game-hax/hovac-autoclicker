@@ -18,7 +18,9 @@ namespace autoclicker.Tabs
             InitializeComponent();
         }
 
-        private void Update()
+        #region Colour
+
+        private void UpdateColour()
         {
             SelectColour.ForeColor = UI.colour;
             SelectColour.Image = UI.recolour(Resources.palette);
@@ -33,13 +35,24 @@ namespace autoclicker.Tabs
         {
             if (ColourSelector.ShowDialog() == DialogResult.OK) {
                 UI.colour = ColourSelector.Color;
-                Update();
+                UpdateColour();
             }
         }
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            Update();
+            UpdateColour();
         }
+
+        #endregion
+
+        #region Miscellaneous
+
+        private void TopMostModifier_CheckedChanged(object sender, EventArgs e)
+        {
+            UI.ActiveForm.TopMost = TopMostModifier.Checked;
+        }
+
+        #endregion
     }
 }

@@ -3,7 +3,7 @@
 **⚠️ WARNING**, in no way is this a representation of my programming abilities. this is not a professional project and i just did this for fun! i might refactor the code and improve it, but for now it works and i dont care enough to change it
 
 ## download @ [releases](https://github.com/game-hax/hovac-autoclicker/releases/)!!
-> ### version: `4.0`
+> ### version: `4.0.1`
 
 ## user interface
 

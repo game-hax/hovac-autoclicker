@@ -27,7 +27,7 @@ namespace autoclicker.Core
         private void ScrollclickEvent()
         {
             if (settings.scrollEnabled) {
-                Thread thread = new Thread(new ThreadStart(() => Click._Click(false)));
+                Thread thread = new Thread(new ThreadStart(Click._Click));
                 thread.Start();
             }
         }
@@ -42,20 +42,20 @@ namespace autoclicker.Core
         {
             if (!blockhitting && settings.blockhitEnabled && mouseButton == MouseButton.Left) { 
                 blockhitting = true;
-                new Thread(new ThreadStart(() => Click.Right(false))).Start();
+                new Thread(new ThreadStart(Click.Right)).Start();
             }
             if (!multiclicking && settings.multiclickEnabled)
             {
                 multiclicking = true;
                 if (mouseButton == MouseButton.Left && settings.lmbEnabled)
                     for (int i = 2; i <= settings.multiclickMultiplier; i += 1)
-                        new Thread(new ThreadStart(() => Click.Left(false))).Start();
+                        new Thread(new ThreadStart(Click.Left)).Start();
                 if (mouseButton == MouseButton.Middle && settings.mmbEnabled)
                     for (int i = 2; i <= settings.multiclickMultiplier; i += 1)
-                        new Thread(new ThreadStart(() => Click.Middle(false))).Start();
+                        new Thread(new ThreadStart(Click.Middle)).Start();
                 if (mouseButton == MouseButton.Right && settings.rmbEnabled)
                     for (int i = 2; i <= settings.multiclickMultiplier; i += 1)
-                        new Thread(new ThreadStart(() => Click.Right(false))).Start();
+                        new Thread(new ThreadStart(Click.Right)).Start();
             }
         }
 
@@ -70,19 +70,19 @@ namespace autoclicker.Core
                     if (Control.MouseButtons == MouseButtons.Left && settings.lmbEnabled)
                     {
                         clicking = true;
-                        Click.Left(true); 
+                        Click.Left(); 
                         clicking = false;
                     }
                     if (Control.MouseButtons == MouseButtons.Middle && settings.mmbEnabled)
                     {
                         clicking = true;
-                        Click.Middle(true);
+                        Click.Middle();
                         clicking = false;
                     }
                     if (Control.MouseButtons == MouseButtons.Right && settings.rmbEnabled)
                     {
                         clicking = true;
-                        Click.Right(true);
+                        Click.Right();
                         clicking = false;
                     }
                 }
@@ -99,7 +99,7 @@ namespace autoclicker.Core
                 Thread.Sleep(1);
                 if (settings.autoclickerEnabled)
                 {
-                    new Thread(new ThreadStart(() => Click._Click(false))).Start();
+                    new Thread(new ThreadStart(Click._Click)).Start();
                 }
             }
         }

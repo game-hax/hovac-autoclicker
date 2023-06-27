@@ -46,9 +46,9 @@ namespace autoclicker
             this.panel2 = new System.Windows.Forms.Panel();
             this.Menu = new System.Windows.Forms.Button();
             this.SidebarTimer = new System.Windows.Forms.Timer(this.components);
+            this.ColourUpdate = new System.Windows.Forms.Timer(this.components);
             this.AutoclickerTab = new autoclicker.Tabs.Autoclicker();
             this.SettingsTab = new autoclicker.Tabs.Settings();
-            this.ColourUpdate = new System.Windows.Forms.Timer(this.components);
             this.Sidebar.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -201,6 +201,12 @@ namespace autoclicker
             this.SidebarTimer.Interval = 1;
             this.SidebarTimer.Tick += new System.EventHandler(this.SidebarTimer_Tick);
             // 
+            // ColourUpdate
+            // 
+            this.ColourUpdate.Enabled = true;
+            this.ColourUpdate.Interval = 1;
+            this.ColourUpdate.Tick += new System.EventHandler(this.ColourUpdate_Tick);
+            // 
             // AutoclickerTab
             // 
             this.AutoclickerTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -219,12 +225,6 @@ namespace autoclicker
             this.SettingsTab.Size = new System.Drawing.Size(399, 312);
             this.SettingsTab.TabIndex = 2;
             // 
-            // ColourUpdate
-            // 
-            this.ColourUpdate.Enabled = true;
-            this.ColourUpdate.Interval = 1;
-            this.ColourUpdate.Tick += new System.EventHandler(this.ColourUpdate_Tick);
-            // 
             // UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,6 +240,7 @@ namespace autoclicker
             this.Name = "UI";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UI_FormClosed);
             this.Load += new System.EventHandler(this.UI_Load);
             this.Sidebar.ResumeLayout(false);
