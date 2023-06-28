@@ -31,14 +31,14 @@ namespace autoclicker.Core.Utils
                 Wait();
         }
 
-        public static void _Click()
+        public static void _Click(bool bounce = false)
         {
             if (clicker.settings.lmbEnabled)
-                Left();
+                Left(bounce);
             if (clicker.settings.rmbEnabled)
-                Right();
+                Right(bounce);
             if (clicker.settings.mmbEnabled)
-                Middle();
+                Middle(bounce);
         }
 
         #region Utilities
@@ -48,7 +48,7 @@ namespace autoclicker.Core.Utils
         [DllImport("user32.dll", SetLastError = true)]
         public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
-        public static void Left()
+        public static void Left(bool bounce = false)
         {
             if ((clicker.settings.whitelistedSlotsEnabled && clicker.settings.whitelistedSlots[clicker.settings.currentSlot]) || (clicker.settings.dimEnabled && Cursor.IsCursorVisible()))
             {
@@ -63,6 +63,8 @@ namespace autoclicker.Core.Utils
                 if (clicker.settings.randomizerEnabled)
                     Wait();
                 mouse_event(4, 0, 0, 0, 0);
+                if (bounce)
+                    mouse_event(2, 0, 0, 0, 0);
             }
             else
             {
@@ -82,7 +84,7 @@ namespace autoclicker.Core.Utils
             clicker.multiclicking = false;
         }
 
-        public static void Right()
+        public static void Right(bool bounce = false)
         {
             if ((clicker.settings.whitelistedSlotsEnabled && clicker.settings.whitelistedSlots[clicker.settings.currentSlot]) || (clicker.settings.dimEnabled && Cursor.IsCursorVisible()))
             {
@@ -97,6 +99,8 @@ namespace autoclicker.Core.Utils
                 if (clicker.settings.randomizerEnabled)
                     Wait();
                 mouse_event(16, 0, 0, 0, 0);
+                if (bounce)
+                    mouse_event(8, 0, 0, 0, 0);
             }
             else
             {
@@ -109,7 +113,7 @@ namespace autoclicker.Core.Utils
             clicker.blockhitting = false;
         }
 
-        public static void Middle()
+        public static void Middle(bool bounce = false)
         {
             if ((clicker.settings.whitelistedSlotsEnabled && clicker.settings.whitelistedSlots[clicker.settings.currentSlot]) || (clicker.settings.dimEnabled && Cursor.IsCursorVisible()))
             {
@@ -124,6 +128,8 @@ namespace autoclicker.Core.Utils
                 if (clicker.settings.randomizerEnabled)
                     Wait();
                 mouse_event(64, 0, 0, 0, 0);
+                if (bounce)
+                    mouse_event(32, 0, 0, 0, 0);
             }
             else
             {
